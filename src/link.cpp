@@ -1576,6 +1576,8 @@ static const char *getLDMOption(const ZigTarget *t) {
             return "elf_x86_64";
         case ZigLLVM_riscv32:
             return "elf32lriscv";
+        case ZigLLVM_xtensa:
+            return "elf32lxtensa";
         case ZigLLVM_riscv64:
             return "elf64lriscv";
         default:

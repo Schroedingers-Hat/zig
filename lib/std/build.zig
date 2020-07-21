@@ -1322,6 +1322,7 @@ pub const Target = union(enum) {
             .wasm32,
             .renderscript32,
             .aarch64_32,
+            .xtensa,
             => return 32,
 
             .aarch64,

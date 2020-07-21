@@ -106,6 +106,7 @@ static const ZigLLVM_ArchType arch_list[] = {
     ZigLLVM_x86,            // X86: i[3-9]86
     ZigLLVM_x86_64,         // X86-64: amd64, x86_64
     ZigLLVM_xcore,          // XCore: xcore
+    ZigLLVM_xtensa,          // XCore: xcore
     ZigLLVM_nvptx,          // NVPTX: 32-bit
     ZigLLVM_nvptx64,        // NVPTX: 64-bit
     ZigLLVM_le32,           // le32: generic little-endian 32-bit CPU (PNaCl)
@@ -611,6 +612,7 @@ SubArchList target_subarch_list(ZigLLVM_ArchType arch) {
         case ZigLLVM_x86:
         case ZigLLVM_x86_64:
         case ZigLLVM_xcore:
+        case ZigLLVM_xtensa:
         case ZigLLVM_nvptx:
         case ZigLLVM_nvptx64:
         case ZigLLVM_le32:
@@ -893,6 +895,7 @@ uint32_t target_arch_pointer_bit_width(ZigLLVM_ArchType arch) {
         case ZigLLVM_mips:
         case ZigLLVM_mipsel:
         case ZigLLVM_nvptx:
+        case ZigLLVM_xtensa:
         case ZigLLVM_ppc:
         case ZigLLVM_r600:
         case ZigLLVM_riscv32:
@@ -957,6 +960,7 @@ uint32_t target_arch_largest_atomic_bits(ZigLLVM_ArchType arch) {
         case ZigLLVM_mips:
         case ZigLLVM_mipsel:
         case ZigLLVM_nvptx:
+        case ZigLLVM_xtensa:
         case ZigLLVM_ppc:
         case ZigLLVM_r600:
         case ZigLLVM_riscv32:
@@ -1352,6 +1356,7 @@ const char *target_dynamic_linker(const ZigTarget *target) {
                 case ZigLLVM_tce:
                 case ZigLLVM_tcele:
                 case ZigLLVM_xcore:
+                case ZigLLVM_xtensa:
                 case ZigLLVM_nvptx:
                 case ZigLLVM_nvptx64:
                 case ZigLLVM_le32:
@@ -1476,6 +1481,7 @@ const char *arch_stack_pointer_register_name(ZigLLVM_ArchType arch) {
         case ZigLLVM_mips64el:
         case ZigLLVM_msp430:
         case ZigLLVM_nvptx:
+        case ZigLLVM_xtensa:
         case ZigLLVM_nvptx64:
         case ZigLLVM_ppc64le:
         case ZigLLVM_r600:
@@ -1554,6 +1560,7 @@ bool target_is_arm(const ZigTarget *target) {
         case ZigLLVM_wasm32:
         case ZigLLVM_wasm64:
         case ZigLLVM_xcore:
+        case ZigLLVM_xtensa:
         case ZigLLVM_ppc:
         case ZigLLVM_ppc64:
             return false;
